@@ -1,0 +1,10 @@
+{
+    "name": "geforce-now-desktop",
+    "description": "Geforce NOW Browser app",
+    "author": "André Gregor-Herrmann",
+    "version": "0.1.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    }
+}
