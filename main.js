@@ -11,7 +11,7 @@ function createWindow () {
         show: false,
         title: "Geforce NOW",
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: false
         },
         icon: path.join('.','assets/icons/gfn64.png')
     })
@@ -59,6 +59,11 @@ function createTray(win) {
     ]    
     let trayMenu = Menu.buildFromTemplate(trayMenuTemplate)
     trayIcon.setContextMenu(trayMenu);
+
+    app.on('before-quit', function (evt) {
+        trayIcon.destroy();
+    });
+    
 }
 
 function setSessionParams() {
@@ -75,4 +80,3 @@ app.on('activate', () => {
         createWindow()
     }
 })
-
