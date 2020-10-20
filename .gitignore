@@ -1,0 +1,3 @@
+node_modules/*
+flatpak/org.aptstore.geforecenow.yml
+package-lock.json

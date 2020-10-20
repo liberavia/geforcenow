@@ -1,10 +1,23 @@
 {
-    "name": "geforce-now-desktop",
-    "description": "Geforce NOW Browser app",
-    "author": "André Gregor-Herrmann",
-    "version": "0.1.0",
-    "main": "main.js",
-    "scripts": {
-        "start": "electron ."
-    }
+  "name": "geforce-now-desktop",
+  "description": "Geforce NOW Browser app",
+  "author": "André Gregor-Herrmann",
+  "version": "0.1.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liberavia/geforcenow.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liberavia/geforcenow/issues"
+  },
+  "homepage": "https://github.com/liberavia/geforcenow#readme",
+  "devDependencies": {
+    "electron": "^10.1.3"
+  }
 }
