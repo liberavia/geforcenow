@@ -1,5 +1,4 @@
-const { create } = require('domain');
-const { app, session, BrowserWindow, Tray, Menu } = require('electron');
+const { app, globalShortcut, Notification, session, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
 const userAgent = 'Mozilla/5.0 (X11; CrOS armv7l 13099.85.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.110 Safari/537.36';
 
@@ -7,7 +6,7 @@ function createWindow () {
     setSessionParams();
     Menu.setApplicationMenu(null);
 
-    const win = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         show: false,
         title: "Geforce NOW",
         webPreferences: {
@@ -16,36 +15,46 @@ function createWindow () {
         icon: path.join('.','assets/icons/gfn64.png')
     })
 
-    win.on('close', function (event) {
+    mainWindow.on('close', function (event) {
         if(!app.isQuiting){
             event.preventDefault();
-            win.hide();
+            mainWindow.hide();
         }
     
         return false;
     });    
 
-    createTray(win);
-    win.loadURL('https://play.geforcenow.com/mall/');
-    win.maximize();
+    createTray(mainWindow);
+    mainWindow.loadURL('https://play.geforcenow.com/mall/');
+    mainWindow.maximize();
+
+    setKeyHandling();
 }
 
-function createTray(win) {
+function setKeyHandling() {
+    globalShortcut.register('F11', () => {
+        let currentWindow = BrowserWindow.getFocusedWindow();
+        let newFullscreenMode = !currentWindow.isFullScreen();
+        currentWindow.setFullScreen(newFullscreenMode);
+    });
+}
+
+function createTray(mainWindow) {
     let trayIconPath = path.join('.','assets/icons/gfn32.png');
     let trayIcon = new Tray(trayIconPath);
 
     const trayMenuTemplate = [
         {
             label: 'Show',
-                click: function () {
-                win.show();
+            click: function () {
+                mainWindow.show();
             }
         },
         
         {
             label: 'Hide',
             click: function () {
-                win.hide();
+                mainWindow.hide();
             }
         },
         
@@ -56,14 +65,14 @@ function createTray(win) {
                 app.quit();
             }
         }
-    ]    
+    ]
+        
     let trayMenu = Menu.buildFromTemplate(trayMenuTemplate)
     trayIcon.setContextMenu(trayMenu);
 
     app.on('before-quit', function (evt) {
         trayIcon.destroy();
     });
-    
 }
 
 function setSessionParams() {
@@ -79,4 +88,4 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow()
     }
-})
+});
