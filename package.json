@@ -2,7 +2,7 @@
   "name": "geforce-now-desktop",
   "appId": "org.aptstore.geforcenow",
   "description": "Geforce NOW Browser app",
-  "author": "André Gregor-Herrmann",
+  "author": "André Gregor-Herrmann <andre.gregor.herrmann@gmail.com>",
   "icon": "assets/icons/gfn32.png",
   "version": "0.1.0",
   "main": "main.js",
@@ -37,7 +37,7 @@
         "AppImage",
         "deb",
         "snap"
-      ],      
+      ],
       "category": "Game"
     }
   }
