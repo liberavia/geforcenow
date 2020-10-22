@@ -1,23 +1,44 @@
 {
   "name": "geforce-now-desktop",
+  "appId": "org.aptstore.geforcenow",
   "description": "Geforce NOW Browser app",
   "author": "André Gregor-Herrmann",
+  "icon": "assets/icons/gfn32.png",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liberavia/geforcenow.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Gaming",
+    "cloud",
+    "launcher",
+    "geforce",
+    "nvidia"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/liberavia/geforcenow/issues"
   },
   "homepage": "https://github.com/liberavia/geforcenow#readme",
   "devDependencies": {
-    "electron": "^10.1.3"
+    "electron": "^10.1.3",
+    "electron-builder": "^22.9.1"
+  },
+  "build": {
+    "linux": {
+      "target": [
+        "zip",
+        "AppImage",
+        "deb",
+        "snap"
+      ],      
+      "category": "Game"
+    }
   }
 }
