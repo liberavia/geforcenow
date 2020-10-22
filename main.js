@@ -12,7 +12,7 @@ function createWindow () {
         webPreferences: {
             nodeIntegration: false
         },
-        icon: path.join('.','assets/icons/gfn64.png')
+        icon: path.join(__dirname,'assets/icons/gfn64.png')
     })
 
     mainWindow.on('close', function (event) {
@@ -40,7 +40,7 @@ function setKeyHandling() {
 }
 
 function createTray(mainWindow) {
-    let trayIconPath = path.join('.','assets/icons/gfn32.png');
+    let trayIconPath = path.join(__dirname,'assets/icons/gfn32.png');
     let trayIcon = new Tray(trayIconPath);
 
     const trayMenuTemplate = [
