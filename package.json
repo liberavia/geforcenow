@@ -4,7 +4,7 @@
   "appId": "org.aptstore.geforcenow",
   "description": "Geforce NOW Browser app for crossplaying your games easily in the cloud",
   "author": "André Gregor-Herrmann <andre.gregor.herrmann@gmail.com>",
-  "icon": "assets/icons/gfn32.png",
+  "icon": "assets/icons/gfn64.png",
   "version": "0.2.0",
   "main": "main.js",
   "scripts": {
