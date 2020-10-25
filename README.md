@@ -16,5 +16,5 @@ Easily unleash your linux gaming experience into the cloud by using this web app
 
 ## Installation
 Just grab the latest release (zip, deb, AppImage) on github (https://github.com/liberavia/geforcenow/releases/) or install it cross platform via snapstore:
-https://snapcraft.io/geforce-now-desktop
+[![geforce-now-desktop](https://snapcraft.io/geforce-now-desktop/badge.svg)](https://snapcraft.io/geforce-now-desktop)
 
