@@ -5,7 +5,7 @@
   "description": "Geforce NOW Browser app for crossplaying your games easily in the cloud",
   "author": "André Gregor-Herrmann <andre.gregor.herrmann@gmail.com>",
   "icon": "assets/icons/gfn64.png",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/liberavia/geforcenow#readme",
   "devDependencies": {
-    "electron": "^10.1.3",
+    "electron": "^10.1.5",
     "electron-builder": "^22.9.1"
   },
   "build": {
@@ -39,7 +39,12 @@
         "deb",
         "snap"
       ],
-      "category": "Game"
+      "category": "Game",
+      "arch": [
+        "amd64",
+        "i386",
+        "armv7l"
+      ]
     },
     "snap": {
       "plugs": [
