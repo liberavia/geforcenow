@@ -39,12 +39,7 @@
         "deb",
         "snap"
       ],
-      "category": "Game",
-      "arch": [
-        "amd64",
-        "i386",
-        "armv7l"
-      ]
+      "category": "Game"
     },
     "snap": {
       "plugs": [
