@@ -1,6 +1,6 @@
 const { app, globalShortcut, Notification, session, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
-const userAgent = 'Mozilla/5.0 (X11; CrOS armv7l 13099.85.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.110 Safari/537.36';
+const userAgent = 'Mozilla/5.0 (X11; CrOS x86_64 13904.66.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36';
 
 function createWindow () {
     setSessionParams();
