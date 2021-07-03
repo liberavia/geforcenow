@@ -5,10 +5,10 @@
   "description": "Geforce NOW Browser app for crossplaying your games easily in the cloud",
   "author": "André Gregor-Herrmann <andre.gregor.herrmann@gmail.com>",
   "icon": "assets/icons/gfn64.png",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron --enable-accelerated-mjpeg-decode --enable-accelerated-video --ignore-gpu-blacklist --enable-native-gpu-memory-buffers --enable-gpu-rasterization .",
     "dist": "electron-builder"
   },
   "repository": {
