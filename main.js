@@ -1,6 +1,7 @@
 const { app, globalShortcut, Notification, session, BrowserWindow, Tray, Menu } = require('electron');
 const path = require('path');
-const userAgent = 'Mozilla/5.0 (X11; CrOS x86_64 13904.66.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36';
+const userAgent = 'Mozilla/5.0 (X11; CrOS x86_64 13982.82.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.157 Safari/537.36';
+app.commandLine.appendSwitch("enable-features", "VaapiVideoDecoder");
 
 function createWindow () {
     setSessionParams();
@@ -10,7 +11,10 @@ function createWindow () {
         show: false,
         title: "Geforce NOW",
         webPreferences: {
-            nodeIntegration: false
+            preload: path.join(__dirname, "preload.js"),
+            contextIsolation: false,
+            nodeIntegration: false,
+            nativeWindowOpen: false
         },
         icon: path.join(__dirname,'assets/icons/gfn64.png')
     })
@@ -25,7 +29,7 @@ function createWindow () {
     });    
 
     createTray(mainWindow);
-    mainWindow.loadURL('https://play.geforcenow.com/mall/');
+    mainWindow.loadURL('https://play.geforcenow.com/');
     mainWindow.maximize();
 
     setKeyHandling();
@@ -59,6 +63,13 @@ function createTray(mainWindow) {
         },
         
         {
+            label: 'Reload',
+            click: function () {
+                mainWindow.reload();
+            }
+        },
+
+        {
             label: 'Quit',
             click: function () {
                 app.isQuiting = true;
@@ -88,4 +99,8 @@ app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
         createWindow()
     }
+});  
+
+app.on("browser-window-created", function (e, window) {
+    window.webContents.setUserAgent(userAgent);
 });
