@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/liberavia/geforcenow#readme",
   "devDependencies": {
-    "electron": "^16.0.2",
-    "electron-builder": "^22.14.5"
+    "electron": "^16.0.5",
+    "electron-builder": "^22.14.12"
   },
   "build": {
     "linux": {
