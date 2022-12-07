@@ -41,6 +41,15 @@ function setKeyHandling() {
         let newFullscreenMode = !currentWindow.isFullScreen();
         currentWindow.setFullScreen(newFullscreenMode);
     });
+    globalShortcut.register('CommandOrControl+Alt+Shift+Left', () => {
+        let currentWindow = BrowserWindow.getFocusedWindow();
+        currentWindow.webContents.goBack();
+    });
+    globalShortcut.register('CommandOrControl+Alt+Shift+Right', () => {
+        let currentWindow = BrowserWindow.getFocusedWindow();
+        currentWindow.webContents.goForward();
+    });
+    
 }
 
 function createTray(mainWindow) {
